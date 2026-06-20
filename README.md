@@ -1,112 +1,44 @@
-# AI Healthcare Assistance Chatbot 🤖
+<div align="center">
+  <h1>🏥 AI Healthcare Assistance Chatbot</h1>
+  <p><strong>Intelligent RAG chatbot that answers health-related questions from uploaded medical PDFs using Google Gemini AI and FAISS vector search.</strong></p>
 
-Welcome to the AI Healthcare Assistance Chatbot repository! This project aims to provide an intelligent, interactive chatbot capable of answering health-related questions by leveraging medical knowledge extracted from uploaded PDF documents.
+  <p>
+    <a href="LICENSE">
+      <img src="https://img.shields.io/github/license/SohaibKhaliq/AI-Healthcare-Assitance-Chatbot?style=flat-square&color=blue" alt="License"/>
+    </a>
+    <a href="https://github.com/SohaibKhaliq/AI-Healthcare-Assitance-Chatbot/stargazers">
+      <img src="https://img.shields.io/github/stars/SohaibKhaliq/AI-Healthcare-Assitance-Chatbot?style=flat-square&color=yellow" alt="Stars"/>
+    </a>
+    <img src="https://img.shields.io/badge/python-3.9+-blue?style=flat-square&logo=python" alt="Python"/>
+    <img src="https://img.shields.io/badge/Google_Gemini-GenAI-blue?style=flat-square&logo=google" alt="Gemini"/>
+    <img src="https://img.shields.io/badge/FAISS-Vector%20Search-green?style=flat-square" alt="FAISS"/>
+    <img src="https://img.shields.io/badge/Streamlit-UI-red?style=flat-square&logo=streamlit" alt="Streamlit"/>
+  </p>
+</div>
 
-## Table of Contents
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
-- [License](#license)
+## 📖 Overview
 
-## Project Overview
+AI Healthcare Assistance Chatbot uses **Retrieval-Augmented Generation (RAG)** to answer health-related queries based on medical PDF documents. Upload medical PDFs, the system extracts text, creates vector embeddings via Google Generative AI, stores them in FAISS, and answers questions using Gemini Pro.
 
-This project uses advanced AI and machine learning techniques to build a chatbot that can assist with health-related queries. The chatbot extracts and analyzes information from medical documents and provides precise and clear answers based on the context provided.
+### How It Works
 
-## Features
+1. **Upload PDFs** → Medical documents are stored in `LLM_DB/`
+2. **Text Extraction** → PDF text extracted via pdfplumber
+3. **Embeddings** → Text chunked and embedded via Google Generative AI
+4. **Vector Store** → FAISS index for similarity search
+5. **Q&A** → Questions matched against documents, answered by Gemini Pro
 
-- **Interactive Health Chatbot**: Ask health-related questions and get responses based on the medical documents.
-- **PDF Upload and Processing**: Upload PDF documents containing medical information.
-- **Automated Text Extraction**: Extracts text from PDFs and splits it into manageable chunks.
-- **Vector Store for Text Embeddings**: Creates and updates embeddings using Google Generative AI.
-- **Embeddings Management**: Automatically checks and updates embeddings based on PDF modifications.
-- **Streamlit Web Application**: User-friendly interface for interaction.
+## 🚀 Quick Start
 
-## Installation
+```bash
+git clone https://github.com/SohaibKhaliq/AI-Healthcare-Assitance-Chatbot.git
+cd AI-Healthcare-Assitance-Chatbot
+python -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+# Create .env with: GOOGLE_API_KEY=your_key_here
+streamlit run app.py
+```
 
-To set up and run this project locally, follow these steps:
+## 📄 License
 
-1. **Clone the Repository**:
-    ```bash
-    git clone https://github.com/SohaibKhaliq/AI-Healthcare-Assitance-Chatbot.git
-    cd AI-Healthcare-Assitance-Chatbot
-    ```
-
-2. **Create and Activate Virtual Environment**:
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-    ```
-
-3. **Install Dependencies**:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-4. **Set Up Environment Variables**:
-    - Create a `.env` file in the project root directory.
-    - Add your Google API key:
-        ```env
-        GOOGLE_API_KEY=your_google_api_key_here
-        ```
-
-5. **Run the Streamlit App**:
-    ```bash
-    streamlit run app.py
-    ```
-
-## Usage
-
-### Chatbot
-
-1. Navigate to the Chatbot tab.
-2. Enter your health-related question in the input field.
-3. Get responses based on the medical documents.
-
-### Upload PDFs
-
-1. Navigate to the Upload PDFs tab.
-2. Upload one or more PDF documents.
-3. Click the "Process" button to extract and update embeddings.
-
-### Dashboard
-
-1. Navigate to the Dashboard tab to view the status of processed files and embeddings.
-
-## Project Structure
-
-├── app.py # Main application file
-
-├── requirements.txt # Required dependencies
-
-├── .env # Environment variables file
-
-├── LLM_DB/ # Directory containing PDF documents
-
-├── faiss_index/ # Directory containing FAISS index and embeddings info
-
-├── README.md # This readme file
-
-
-## Contributing
-
-Contributions are welcome! Please follow these steps to contribute:
-
-1. Fork the repository.
-2. Create a new branch: `git checkout -b feature-branch`
-3. Make your changes and commit them: `git commit -m 'Add new feature'`
-4. Push to the branch: `git push origin feature-branch`
-5. Submit a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-
-
----
-
-Thank you for visiting this project! If you find it useful, please give it a star ⭐ on GitHub.
+MIT
